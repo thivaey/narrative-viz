@@ -26,13 +26,32 @@
 		<div class='main-text'>
 	  		<p class='center subtitle'><span class='bold'>Passes and Assists</span></p>
 	  		<p class='explain'>
-				&emsp;These designs visualize the spatial distribution of passes and assists over the pitch. Assists in this context refer to passes right before a shot attempt, whether the attempt leads to a goal or not. The pitch is a regulation-sized 120-by-80 yard field. The selected team's direction of play is to the right.
+				&emsp;This visualization shows the spatial distribution of assists over the pitch. An assist is commonly understood 
+				to be the last pass to the scorer of a goal. The pitch is a regulation-sized 120-by-80 yard field. In the 
+				visualization below, the pitch is divided into a 6x3 grid. Each cell of the grid represents a zone. The team's 
+				direction of play is to the right.<br><br>
+				
+				&emsp;In the late 2010, Barcelona were champions of the 'tiki-taka' style of football. <br>
+				&emsp;• This style places strong emphasis on making short passes and enabling the attackers to take take shots from short 
+				distances. Notice how most assists originate in zones closer to the opposition's goal <i><span class='red' style="font-size: small;">(in zones which are more Red).</span></i>
+			</p>
+
+			<p class='shot-legend'>
+				<b> How to read this visualization: </b><br>
+				Each assist is denoted by a ring drawn on the pitch.The color <span class='red'>intensity</span> of a zone represents the 
+				frequency of assists that orginated from that zone.
 	  		</p>
 		</div>
 
 		<!-- Assists Visualization -->
 		<div id="assists-component" class='flex-container'>
 			<div id="assists-viz">
+				<div id='eventHandler' class='center'>
+					<svg width="459" height="360" id='field-assist'>
+						<image href="./assets/pitch.svg" opacity='0.4'>
+					</svg>
+				</div>
+
 				<div id="dropdowns" class="flex-container">
 					<h2 class="dropdown-label"> Team <br>
 						<select id="assists-team-sel" disabled></select>
@@ -42,25 +61,10 @@
 					</h2>
 				</div>
 				<p id='aggregate-number-assists' class='agg-label'></p>
-
-				<div id='eventHandler' class='center'>
-					<svg width="459" height="360" id='field-assist'>
-						<image href="/assets/pitch.svg" opacity='0.4'>
-					</svg>
-				</div>
-			</div>
-
-			<div id="assists-explain" style='width:459px;margin-top:5%;padding-left:5%;'>
-				<p class='center' style='font-size: 12pt;'><span class='bold'>Assists Heatmap</span></p>
-				<p>
-					&emsp;An assist is commonly understood to be the last pass to the scorer of a goal. Each assist is denoted by a ring drawn on the pitch. <br><br>
-					The pitch is divided into a 6x3 grid commonly used by coaches (see for example, <a href=https://spielverlagerung.com/glossary/pitch-zones/zone-14>Zone 14</a>) with the central strip as wide as the six yard box. Each cell of the grid represents a zone. <br><br>
-					The color <span class='red'>intensity</span> of a zone represents the frequency of assists that orginated from that zone. <br><br>
-				</p>
 			</div>
 		</div>
 		
-		<script src="/scripts/assists.js"></script>
+		<script src="./scripts/assists.js"></script>
 
 		<div>
 			<br>
@@ -69,7 +73,7 @@
 		</div>
 
 		<div class='flex-container'>
-			<a href="/scene_2.html" class="ref-button previous">&laquo; Previous</a>
+			<a href="./scene_2.html" class="ref-button previous">&laquo; Previous</a>
 			<a href="" class="ref-button next">Next &raquo;</a>
 		</div>
 	</div>

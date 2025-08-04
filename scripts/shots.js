@@ -109,7 +109,7 @@ function initShots() {
         .range([topLeftYShots, bottomRightYShots]);
 
     // data loading and handling
-    d3.json('/data/shots_barcelona_clean.json')
+    d3.json('./data/shots_barcelona_clean.json')
         .then(function(data) {
             // console.log(data);
             shotData = data;

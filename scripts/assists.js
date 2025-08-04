@@ -224,10 +224,10 @@ function init() {
         .range([topLeftY, bottomRightY]);
 
     // data loading and handling
-    d3.json('/data/assists_barcelona_clean.json')
+    d3.json('./data/assists_barcelona_clean.json')
         .then(function(data) {
             // console.log("assist data:", data);
-            d3.json('/data/assist_zones_barcelona_clean.json')
+            d3.json('./data/assist_zones_barcelona_clean.json')
                 .then(function(data) {
                     // console.log("zone data:", data);
                     zoneData = data;

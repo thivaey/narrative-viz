@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CS 416 Narrative Visualization</title>
+	<meta name="description" content="CS 416 Narrative Visualization">
+	<meta name="author" content="Divey Anand">
+	<link rel="stylesheet" href="index.css">
+	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script> $(document).tooltip() </script>
+</head>
+
+<body>
+	<div id='content' class='flex-container'>
+		<!-- Header -->
+		<div class='header' id='title'>
+			<h1 class='center'> Visualizing Soccer Data with d3.js </h1>
+			<h3 class='center'> Narrative Visualization Project for CS 416 </h3>
+			<hr>
+		</div>
+
+		<div class='main-text'>
+			<p class='center subtitle'><span class='bold'>Shots and Goals</span></p>
+			<p class='explain'>
+				&emsp;This design visualizes the spatial layout of attempted shots and their conversion to goals on a regulation sized soccer goal post. Begin by selecting a team. All team data is displayed by default and can be further filtered by competition season and shot type.
+			</p>
+
+			<div class='flex-container'>
+				<p class='shot-legend'>
+					Each shot is denoted by a point drawn on the goalpost. <br><br>
+
+					<span class='red'>Colored</span> points denote shot attempts that ended up in goal, while <br>
+					<span class='bold'>Black</span> points denote attempts that were blocked or off-target. <br>
+					<span class='faint'>Opacity</span> denotes a shot's xG (eXpectedGoals) statistic, a popular metric used to measure the likelihood of scoring. Easier shots have high xG and appear more solid, while harder shots have lower xG and appear more transparent.
+				</p>
+
+				<div class='shot-legend'>
+					The barchart on the right displays analytics for the selected data. <br><br>
+					<span class='bold'>Time</span>: 15-minute interval during which successful goals were made <br>
+					<span class='bold'>Body Part</span>:  Which body part was used to make shot attempts <br>
+					<div class='flex-technique'>
+						<span class='bold'>Technique</span>: How shots were made (
+						<div class="help-tip">
+							<p>
+								<span class='bold'>Backheel</span>: A shot taken with the heel <br>
+								<span class='bold'>Volley</span>: Ball never touched the ground prior to shot <br>
+								<span class='bold'>Diving Header</span>: Ball struck near ground level by head of a diving player <br>
+								<span class='bold'>Lob</span>: Shot with high arc trajectory to pass over opposition players <br>
+								<span class='bold'>Half Volley</span>: Contact with ball made off the ground after a bounce <br>
+								<span class='bold'>Normal</span>: Shots which do not fall in any other category <br>
+								<span class='bold'>Overhead Kick</span>: Shot taken with player's back facing the goal <br>
+							</p>
+						</div>)
+					</div>
+					</div>
+			</div>
+		</div>
+
+
+		<div class="flex-container" id='shot-viz'>
+			<div>
+				<svg width="530" height="320" id='goal' preserveAspectRatio="xMidYMid slice" viewBox="0 0 630 320">
+					<image href="/assets/goal_image.png" width="630" height="320" opacity="0.5" />
+				</svg>
+			</div>
+			<div class="horizontalgap" style="width:25px"></div>
+			<div>
+				<div class='flex-container' id='selector'>
+					<input type="radio" id="time" name="category"><label for='Time'>Time&emsp;</label>
+					<input type="radio" id="bodypart" name="category"><label for="BodyPart">Body Part&emsp;</label>
+					<input type="radio" id="technique" name="category"><label for="Technique">Technique</label>
+				</div>
+				<svg width="520" height="304" id='barchart'></svg>
+			</div>
+		</div>
+
+		<div id="dropdowns" class="flex-container">
+			<h2 class="dropdown-label"> Team <br>
+				<select id="team-sel" disabled></select>
+			</h2>
+			<h2 class="dropdown-label"> Season <br>
+				<select id="season-sel"></select>
+			</h2>
+			<h2 class="dropdown-label"> Shot Type <br>
+				<select id="type-sel"></select>
+			</h2>
+		</div>
+		<p id='aggregate-number-shots' class='agg-label'></p>
+		<script src="/scripts/shots.js"></script>
+
+		<div>
+			<br>
+			<hr>
+			<br>
+		</div>
+
+		<div class='flex-container'>
+			<a href="/scene_1.html" class="ref-button previous">&laquo; Previous</a>
+			<a href="/scene_3.html" class="ref-button next">Next &raquo;</a>
+		</div>
+	</div>
+</body>
+</html>

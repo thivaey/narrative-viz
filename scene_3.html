@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CS 416 Narrative Visualization</title>
+	<meta name="description" content="CS 416 Narrative Visualization">
+	<meta name="author" content="Divey Anand">
+	<link rel="stylesheet" href="index.css">
+	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script> $(document).tooltip() </script>
+</head>
+
+<body>
+	 <div id='content' class='flex-container'>
+		<!-- Header -->
+		<div class='header' id='title'>
+			<h1 class='center'> Visualizing Soccer Data with d3.js </h1>
+			<h3 class='center'> Narrative Visualization Project for CS 416 </h3>
+			<hr>
+		</div>
+
+		<div class='main-text'>
+	  		<p class='center subtitle'><span class='bold'>Passes and Assists</span></p>
+	  		<p class='explain'>
+				&emsp;These designs visualize the spatial distribution of passes and assists over the pitch. Assists in this context refer to passes right before a shot attempt, whether the attempt leads to a goal or not. The pitch is a regulation-sized 120-by-80 yard field. The selected team's direction of play is to the right.
+	  		</p>
+		</div>
+
+		<!-- Assists Visualization -->
+		<div id="assists-component" class='flex-container'>
+			<div id="assists-viz">
+				<div id="dropdowns" class="flex-container">
+					<h2 class="dropdown-label"> Team <br>
+						<select id="assists-team-sel" disabled></select>
+					</h2>
+					<h2 class="dropdown-label"> Season <br>
+					<select id="assists-season-sel"></select>
+					</h2>
+				</div>
+				<p id='aggregate-number-assists' class='agg-label'></p>
+
+				<div id='eventHandler' class='center'>
+					<svg width="459" height="360" id='field-assist'>
+						<image href="/assets/pitch.svg" opacity='0.4'>
+					</svg>
+				</div>
+			</div>
+
+			<div id="assists-explain" style='width:459px;margin-top:5%;padding-left:5%;'>
+				<p class='center' style='font-size: 12pt;'><span class='bold'>Assists Heatmap</span></p>
+				<p>
+					&emsp;An assist is commonly understood to be the last pass to the scorer of a goal. Each assist is denoted by a ring drawn on the pitch. <br><br>
+					The pitch is divided into a 6x3 grid commonly used by coaches (see for example, <a href=https://spielverlagerung.com/glossary/pitch-zones/zone-14>Zone 14</a>) with the central strip as wide as the six yard box. Each cell of the grid represents a zone. <br><br>
+					The color <span class='red'>intensity</span> of a zone represents the frequency of assists that orginated from that zone. <br><br>
+				</p>
+			</div>
+		</div>
+		
+		<script src="/scripts/assists.js"></script>
+
+		<div>
+			<br>
+			<hr>
+			<br>
+		</div>
+
+		<div class='flex-container'>
+			<a href="/scene_2.html" class="ref-button previous">&laquo; Previous</a>
+			<a href="" class="ref-button next">Next &raquo;</a>
+		</div>
+	</div>
+</body>
+</html>
